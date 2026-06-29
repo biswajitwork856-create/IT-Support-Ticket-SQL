@@ -1,7 +1,7 @@
 # 🎫 IT Support Ticket Analysis — SQL Project
 
 > A real-world SQL project built on a simulated IT support ticketing database.  
-> Covers 25 queries across 5 levels — from basic SELECT to CTEs and Window Functions.
+> Covers 20 queries across 5 levels — from basic SELECT to CTEs and Window Functions.
 
 ---
 
