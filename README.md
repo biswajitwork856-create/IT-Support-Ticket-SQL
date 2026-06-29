@@ -107,15 +107,15 @@ sla_breached
 
 | Tool | Usage |
 |------|-------|
-| **MSSQL Server** | Database engine |
-| **SSMS** | Query execution |
-| **SQL** | Data analysis & reporting |
+| **MYSQL SERVER** | Database engine |
+| **MYSQL WORKBENCH** | Query execution |
+| **MYSQL(SQL)** | Data analysis & reporting |
 
 ---
 
 ## 🚀 How to Run
 
-1. Open **SQL WORKBENCH**
+1. Open **MYSQL WORKBENCH**
 2. Create a new database:
    ```sql
    CREATE DATABASE support_db;
