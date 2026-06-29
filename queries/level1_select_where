@@ -1,0 +1,14 @@
+-- 1. Show all open tickets.  
+select * from tickets where tickets.status = "open";
+
+-- 2. Show critical priority not resolved tickets.
+select * from tickets where priority = "critical" and status!= "Resolved";
+
+-- 3. Show SLA Breach tickets.
+select * from tickets where sla_breached = 1;
+
+-- 4. Show today created tickets.
+select * from tickets where cast(created_at as date) = cast(curdate() as date);
+
+-- 5. Show oldest top 5 unresolved tickets.
+select * from tickets where status != "resolved" order by created_at desc limit 5;
