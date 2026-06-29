@@ -47,7 +47,7 @@ sla_breached
 | 1 | Fetch all open tickets | WHERE, ORDER BY |
 | 2 | Critical unresolved tickets | WHERE + AND |
 | 3 | SLA breached tickets | BIT column filter |
-| 4 | Today's tickets | GETDATE(), CAST |
+| 4 | Today's tickets | CURDATE(), CAST |
 | 5 | Top 5 oldest unresolved tickets | TOP + WHERE |
 
 ---
@@ -57,7 +57,7 @@ sla_breached
 |---|-------|---------|
 | 1 | Tickets handled per agent | COUNT + GROUP BY |
 | 2 | Tickets by category | Recurring issue detection |
-| 3 | Average resolution time (hours) | AVG + DATEDIFF |
+| 3 | Average resolution time (hours) | AVG + TIMESTAMPDIFF |
 | 4 | SLA breach count by priority | SUM on BIT column |
 | 5 | Agents with more than 2 resolved tickets | HAVING |
 
@@ -80,17 +80,14 @@ sla_breached
 | 1 | Ticket sequence per agent | ROW_NUMBER + PARTITION BY |
 | 2 | Best agent per team | RANK + PARTITION BY |
 | 3 | Top 1 agent per team | ROW_NUMBER + Subquery |
-| 4 | Days between customer tickets | LAG() |
-| 5 | Cumulative daily ticket count | SUM OVER + ROWS BETWEEN |
 
 ---
 
 ### ✅ Level 5 — CTEs (Common Table Expressions)
 | # | Query | Concept |
 |---|-------|---------|
-| 1 | Top agent per team — clean version | Basic CTE |
-| 2 | SLA breach percentage by priority | Multiple CTEs + LEFT JOIN |
-| 3 | Full agent performance dashboard | CTE + JOIN + Window Function |
+| 1 | SLA breach percentage by priority | Multiple CTEs + LEFT JOIN |
+| 2 | Full agent performance dashboard | CTE + JOIN + Window Function |
 
 ---
 
@@ -100,9 +97,8 @@ sla_breached
 - `INNER JOIN` vs `LEFT JOIN` — when to use which
 - `CASE WHEN` — SQL's if-else for conditional aggregation
 - `ROW_NUMBER()` vs `RANK()` — handling ties differently
-- `LAG()` — comparing current row with previous row
 - `CTE` vs `Subquery` — readability and reusability
-- `DATEDIFF`, `GETDATE()`, `ISNULL()`, `CAST` — MSSQL functions
+- `TIMESTAMPDIFF`, `CURDATE()`, `ISNULL()`, `CAST` — MSSQL functions
 - `SUM` on BIT columns — smart breach counting trick
 
 ---
@@ -119,7 +115,7 @@ sla_breached
 
 ## 🚀 How to Run
 
-1. Open **SQL Server Management Studio (SSMS)**
+1. Open **SQL WORKBENCH**
 2. Create a new database:
    ```sql
    CREATE DATABASE support_db;
@@ -171,6 +167,6 @@ Built by **Biswajit Paul**
 
 ## 📈 Resume Highlight
 
-> *"Designed and executed 25+ SQL queries for IT support ticket analysis — covering JOINs, aggregations, window functions (RANK, ROW_NUMBER, LAG), and multi-CTE performance dashboards using MSSQL."*
+> *"Designed and executed 20+ SQL queries for IT support ticket analysis — covering JOINs, aggregations, window functions (RANK, ROW_NUMBER, LAG), and multi-CTE performance dashboards using MSSQL."*
 
 ⭐ **Star this repo if it helped you!**
